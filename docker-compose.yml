@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  #services name app
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    # volumes match our local to docker image directory if we change to to local it will automatically change in realtime docker image
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
